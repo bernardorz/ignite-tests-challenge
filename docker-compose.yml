@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+    postgres:
+        container_name : fin_api
+        image: postgres:13
+        restart: always
+        ports:
+          - 5432:5432
+        environment:
+          - POSTGRES_DB=fin_api
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=docker
+          - TZ=America/Sao_paulo
+          - PGTZ=America/Sao_paulo
+          
+      
+        

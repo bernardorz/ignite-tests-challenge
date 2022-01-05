@@ -15,6 +15,7 @@ enum OperationType {
   WITHDRAW = 'withdraw',
 }
 
+
 @Entity('statements')
 export class Statement {
   @PrimaryGeneratedColumn('uuid')
@@ -48,3 +49,5 @@ export class Statement {
     }
   }
 }
+
+export { OperationType };
