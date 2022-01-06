@@ -14,6 +14,7 @@ export class GetBalanceController {
 
     const balanceDTO = BalanceMap.toDTO(balance);
 
+    console.log(balanceDTO)
     return response.json(balanceDTO);
   }
 }
