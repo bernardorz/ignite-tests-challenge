@@ -6,7 +6,7 @@ import { TransferOperationUseCase } from "./TransferOperationUseCase";
 
 class TransferOperationController {
 
- async handle(request: Request, response: Response): Promise<Response> {
+ async execute(request: Request, response: Response): Promise<Response> {
   const sender_id = request.user.id;
   const { user_id } = request.params;
   const { amount, description } = request.body;

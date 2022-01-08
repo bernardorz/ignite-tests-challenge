@@ -3,7 +3,7 @@ import { AppError } from "../../../../shared/errors/AppError";
 import { IUsersRepository } from "../../../users/repositories/IUsersRepository";
 import { Statement, OperationType } from "../../entities/Statement";
 import { IStatementsRepository } from "../../repositories/IStatementsRepository";
-import { ITransferenceOperationDTO } from "./ITransferOperationDTO";
+import { ITransferOperationDTO } from "./ITransferOperationDTO";
 
 @injectable()
 class TransferOperationUseCase {
@@ -14,7 +14,7 @@ class TransferOperationUseCase {
   private statementsRepository: IStatementsRepository
  ) { }
 
- async execute({ user_id, sender_id, description, amount }: ITransferenceOperationDTO): Promise<Statement> {
+ async execute({ user_id, sender_id, description, amount }: ITransferOperationDTO): Promise<Statement> {
   const sender = await this.usersRepository.findById(sender_id)
 
   if (!sender) {
@@ -33,7 +33,7 @@ class TransferOperationUseCase {
    throw new AppError("Insufficient Funds For Transference")
   }
 
-  const transfer = await this.statementsRepository.create({
+  const transfer = await this.statementsRepository.createTransferOperation({
    sender_id,
    user_id,
    amount,
